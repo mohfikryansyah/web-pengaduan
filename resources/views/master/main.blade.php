@@ -88,6 +88,7 @@
                                 <option selected disabled>Pilih Kategori Laporan</option>
                                 <option value="Pungutan Liar">Pungutan Liar</option>
                                 <option value="Gratifikasi">Gratifikasi</option>
+                                <option value="Korupsi">Korupsi</option>
                             </select>
                         </div>
 
@@ -188,6 +189,4 @@
             </div>
         </div>
     </section>
-
-    
 @endsection
