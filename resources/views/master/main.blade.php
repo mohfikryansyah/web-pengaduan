@@ -43,8 +43,8 @@
                     <h2 class="text-gray-900 dark:text-white text-4xl font-extrabold mb-2">Selamat Datang ...
                     </h2>
                     <p class="text-xl font-normal text-gray-500 dark:text-gray-400 mb-4">Website ini diciptakan sebagai
-                        platform untuk melaporkan praktik <span class="text-red-500">Pungutan Liar, Gratifikasi </span> dan <span
-                            class="text-red-500">Korupsi,</span> memberikan masyarakat ruang untuk berbicara dan
+                        platform untuk melaporkan praktik <span class="text-red-500">Pungutan Liar, Gratifikasi </span> dan
+                        <span class="text-red-500">Korupsi,</span> memberikan masyarakat ruang untuk berbicara dan
                         berperan aktif.</p>
                     <a href="#laporkan"
                         class="text-blue-600 dark:text-yellow-500 hover:underline font-medium text-lg inline-flex items-center">Laporkan
@@ -188,6 +188,24 @@
                             <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-6">Pungutan liar adalah
                                 praktik ilegal atau tidak resmi yang melibatkan pengambilan uang secara tidak sah oleh pihak
                                 berwenang atau individu.</p>
+                            <a href="#"
+                                class="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center text-white rounded-lg bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 dark:focus:ring-yellow-900">
+                                Sudah Paham Kan ..
+                            </a>
+                        </div>
+                    </div>
+                    <div class="md:px-4 md:pt-0 mx-auto max-w-screen-xl">
+                        <div
+                            class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12 mb-8">
+                            <a href="#"
+                                class="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md dark:bg-gray-700 dark:text-yellow-400 mb-2">Pungutan
+                                Liar
+                            </a>
+                            <h1 class="text-gray-900 dark:text-white text-xl md:text-3xl font-extrabold mb-2">Apa itu
+                                Korupsi?</h1>
+                            <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-6">
+                                Korupsi adalah tindakan curang oleh pejabat yang menyalahgunakan kekuasaan demi keuntungan
+                                pribadi, merugikan masyarakat dan pembangunan.</p>
                             <a href="#"
                                 class="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center text-white rounded-lg bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 dark:focus:ring-yellow-900">
                                 Yuk Lapor!
