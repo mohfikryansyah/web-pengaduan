@@ -43,8 +43,8 @@
                     <h2 class="text-gray-900 dark:text-white text-4xl font-extrabold mb-2">Selamat Datang ...
                     </h2>
                     <p class="text-xl font-normal text-gray-500 dark:text-gray-400 mb-4">Website ini diciptakan sebagai
-                        platform untuk melaporkan praktik <span class="text-red-500">Pungutan Liar</span> dan <span
-                            class="text-red-500">Gratifikasi,</span> memberikan masyarakat ruang untuk berbicara dan
+                        platform untuk melaporkan praktik <span class="text-red-500">Pungutan Liar, Gratifikasi </span> dan <span
+                            class="text-red-500">Korupsi,</span> memberikan masyarakat ruang untuk berbicara dan
                         berperan aktif.</p>
                     <a href="#laporkan"
                         class="text-blue-600 dark:text-yellow-500 hover:underline font-medium text-lg inline-flex items-center">Laporkan
