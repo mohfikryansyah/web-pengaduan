@@ -75,7 +75,7 @@
     <section id="laporkan" class="bg-gray-100">
         <div class="max-w-screen-xl px-6 py-8 mx-auto lg:py-24 lg:px-6">
             <div class="md:grid grid-cols-7">
-                <div class="w-full col-span-4 h-auto p-4 bg-gray-50 border border-gray-200 rounded-lg sm:p-8">
+                <div class="w-full col-span-4 md:h-[920px] h-auto p-4 bg-gray-50 border border-gray-200 rounded-lg sm:p-8">
                     <div class="w-full bg-yellow-500 rounded-md text-white p-4 mb-5">
                         <h1 class="text-xl font-semibold">Sampaikan Laporan Anda</h1>
                     </div>
@@ -141,9 +141,7 @@
                             <input
                                 class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 mb-"
                                 aria-describedby="file_input_help" id="file_input" name="file_input" type="file">
-                            <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or
-                                GIF
-                                (MAX. 800x400px).</p>
+                            <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">PDF, JPG, JPEG, dan PNG.</p>
                             @error('file_input')
                                 {{ $message }}
                             @enderror

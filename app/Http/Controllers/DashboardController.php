@@ -44,7 +44,7 @@ class DashboardController extends Controller
             'pesan' => 'required',
             'tanggal' => 'required',
             'lokasi' => 'required',
-            'file_input' => 'required',
+            'file_input' => 'required|mimes:pdf,jpg,jpeg,png|file|max:2048',
         ]);
         $rules['file_input'] = $request->file('file_input')->store('bukti');
         $rules['status'] = "Baru";
