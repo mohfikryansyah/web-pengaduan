@@ -75,7 +75,7 @@
     <section id="laporkan" class="bg-gray-100">
         <div class="max-w-screen-xl px-6 py-8 mx-auto lg:py-24 lg:px-6">
             <div class="md:grid grid-cols-7">
-                <div class="w-full col-span-4 md:h-[920px] h-auto p-4 bg-gray-50 border border-gray-200 rounded-lg sm:p-8">
+                <div class="w-full col-span-4 md:h-[1010px] h-auto p-4 bg-gray-50 border border-gray-200 rounded-lg sm:p-8">
                     <div class="w-full bg-yellow-500 rounded-md text-white p-4 mb-5">
                         <h1 class="text-xl font-semibold">Sampaikan Laporan Anda</h1>
                     </div>
@@ -87,6 +87,14 @@
                             <input type="text" id="nama" name="nama"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-500 focus:border-yellow-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-yellow-500 dark:focus:border-yellow-500"
                                 placeholder="" required value="{{ old('nama') }}">
+                        </div>
+
+                        <div class="mb-6">
+                            <label for="email"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                            <input type="email" id="email" name="email"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-500 focus:border-yellow-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-yellow-500 dark:focus:border-yellow-500"
+                                placeholder="" required value="{{ old('email') }}">
                         </div>
 
                         <div class="mb-6">

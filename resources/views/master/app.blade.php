@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ isset($title) ? $title : 'Inspektorat Kota Gorontalo' }}</title>
     {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
-    <link rel="stylesheet" href="{{ asset('build/assets/app-a6f34c6e.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/assets/app-1dec58ef.css') }}">
 </head>
 
 <body>

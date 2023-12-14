@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('master.main', [
-        'title' => 'Inspektorat Kota Gorontalo'
+        'title' => 'Inspektorat Kota Gorontalo',
     ]);
 });
 
@@ -25,8 +25,8 @@ Route::get('/profile', function () {
     return view('master.layouts.profile');
 });
 
-// Route::resource('dashboard', DashboardController::class)->except('index');
-Route::resource('dashboard', DashboardController::class);
+Route::resource('dashboard', DashboardController::class)->middleware('auth');
+Route::get('/kirim-email/{id}', [DashboardController::class, 'sendEmail'])->name('sendEmail');
 
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -34,4 +34,4 @@ Route::resource('dashboard', DashboardController::class);
 //     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 // });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

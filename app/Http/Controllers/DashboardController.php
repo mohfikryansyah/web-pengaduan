@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Pengaduan;
 use Illuminate\Http\Request;
+use App\Mail\SendMail;
+use Illuminate\Support\Facades\Mail;
 
 class DashboardController extends Controller
 {
@@ -14,12 +16,44 @@ class DashboardController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-
+    public function sendEmail(Pengaduan $id)
     {
+        if ($id['status'] == 'Baru') {
+            $id['status'] = 'Sedang diproses';
+            $id->save();
+            $infoMail = [
+                'nama' => $id->nama,
+                'judul' => $id->judul,
+                'status' => 'sedang kami proses',
+            ];
+        } else {
+            $id['status'] = 'Selesai diproses';
+            $id->save();
+            $infoMail = [
+                'nama' => $id->nama,
+                'judul' => $id->judul,
+                'status' => 'selesai kami proses',
+            ];
+        }
+
+        Mail::to($id->email)->send(new SendMail($infoMail));
+
+        return redirect('/dashboard')->with('success', 'Berhasil mengirim notifikasi!');
+    }
+
+    public function index(Request $request)
+    {
+        $tahun = $request->input('tahun');
+
+        if ($tahun == 'all') {
+            $data = Pengaduan::paginate(10);
+        } else {
+            $data = Pengaduan::where('tanggal', 'like', '%' . $tahun . '%')->get();
+        }
+
         return view('master.layouts.dashboard-tabel', [
-            'pengaduan' => Pengaduan::paginate(10),
-            'title' => 'Dashboard'
+            'pengaduan' => $data,
+            'title' => 'Dashboard',
         ]);
     }
 
@@ -39,6 +73,7 @@ class DashboardController extends Controller
         // dd($request->all());
         $rules = $request->validate([
             'nama' => 'required',
+            'email' => 'required',
             'judul' => 'required',
             'kategori' => 'required',
             'pesan' => 'required',
@@ -47,7 +82,7 @@ class DashboardController extends Controller
             'file_input' => 'required|mimes:pdf,jpg,jpeg,png|file|max:2048',
         ]);
         $rules['file_input'] = $request->file('file_input')->store('bukti');
-        $rules['status'] = "Baru";
+        $rules['status'] = 'Baru';
         // dd($rules);
         Pengaduan::create($rules);
         return redirect('/');
@@ -76,7 +111,7 @@ class DashboardController extends Controller
     {
         $getID = Pengaduan::findOrFail($dashboard->id);
         // dd($getID);
-        $getID['status'] = "Sudah di proses";
+        $getID['status'] = 'Sudah di proses';
         $getID->save();
         return redirect('/dashboard');
     }
