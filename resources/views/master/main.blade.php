@@ -204,8 +204,7 @@
                         <div
                             class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12 mb-8">
                             <a href="#"
-                                class="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md dark:bg-gray-700 dark:text-yellow-400 mb-2">Pungutan
-                                Liar
+                                class="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md dark:bg-gray-700 dark:text-yellow-400 mb-2">Korupsi
                             </a>
                             <h1 class="text-gray-900 dark:text-white text-xl md:text-3xl font-extrabold mb-2">Apa itu
                                 Korupsi?</h1>

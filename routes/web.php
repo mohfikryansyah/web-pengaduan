@@ -25,7 +25,7 @@ Route::get('/profile', function () {
     return view('master.layouts.profile');
 });
 
-Route::resource('dashboard', DashboardController::class)->middleware('auth');
+Route::resource('dashboard', DashboardController::class);
 Route::get('/kirim-email/{id}', [DashboardController::class, 'sendEmail'])->name('sendEmail');
 
 // Route::middleware('auth')->group(function () {
