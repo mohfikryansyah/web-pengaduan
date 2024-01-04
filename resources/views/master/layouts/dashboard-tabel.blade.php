@@ -124,12 +124,12 @@
                             <td class="px-6 py-4">
                                 @if ($data->status == 'Baru')
                                     <a href="{{ route('sendEmail', ['id' => $data->id]) }}"
-                                        class="text-blue-500" onclick="confirm('Anda yakin untuk memproses laporan ini?')">Proses |</a>
+                                        class="text-blue-500" onclick="return confirm('Anda yakin untuk memproses laporan ini?')">Proses |</a>
                                     <a href="{{ route('tolakEmail', ['id' => $data->id]) }}"
-                                        class="text-blue-500" onclick="confirm('Anda yakin untuk menolak laporan ini?')">Tolak</a>
+                                        class="text-blue-500" onclick="return confirm('Anda yakin untuk menolak laporan ini?')">Tolak</a>
                                 @elseif ($data->status == 'Sedang diproses')
                                     <a href="{{ route('sendEmail', ['id' => $data->id]) }}"
-                                        class="text-blue-500" onclick="confirm('Anda yakin untuk menyelesaikan laporan ini?')">Selesaikan</a>
+                                        class="text-blue-500" onclick="return confirm('Anda yakin untuk menyelesaikan laporan ini?')">Selesaikan</a>
                                 @endif
                             </td>
                         </tr>
