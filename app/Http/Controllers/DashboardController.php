@@ -41,6 +41,21 @@ class DashboardController extends Controller
         return redirect('/dashboard')->with('success', 'Berhasil mengirim notifikasi!');
     }
 
+    public function tolakEmail(Pengaduan $id)
+    {
+        $id['status'] = 'Ditolak';
+        $id->save();
+        $infoMail = [
+            'nama' => $id->nama,
+            'judul' => $id->judul,
+            'status' => 'ditolak',
+        ];
+
+        Mail::to($id->email)->send(new SendMail($infoMail));
+
+        return redirect('/dashboard')->with('success', 'Berhasil mengirim notifikasi!');
+    }
+
     public function index(Request $request)
     {
         $tahun = $request->input('tahun');

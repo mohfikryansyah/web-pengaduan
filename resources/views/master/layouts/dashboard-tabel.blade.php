@@ -87,6 +87,12 @@
                                     </span>
                                 @elseif ($data->status == 'Sedang diproses')
                                     <span
+                                        class="inline-flex items-center bg-yellow-100 text-yellow-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-900 dark:text-yellow-300">
+                                        <span class="w-2 h-2 mr-1 bg-yellow-500 rounded-2xl"></span>
+                                        {{ $data->status }}
+                                    </span>
+                                @elseif ($data->status == 'Ditolak')
+                                    <span
                                         class="inline-flex items-center bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">
                                         <span class="w-2 h-2 mr-1 bg-red-500 rounded-2xl"></span>
                                         {{ $data->status }}
@@ -118,10 +124,12 @@
                             <td class="px-6 py-4">
                                 @if ($data->status == 'Baru')
                                     <a href="{{ route('sendEmail', ['id' => $data->id]) }}"
-                                        class="text-blue-500">Proses</a>
+                                        class="text-blue-500" onclick="confirm('Anda yakin untuk memproses laporan ini?')">Proses |</a>
+                                    <a href="{{ route('tolakEmail', ['id' => $data->id]) }}"
+                                        class="text-blue-500" onclick="confirm('Anda yakin untuk menolak laporan ini?')">Tolak</a>
                                 @elseif ($data->status == 'Sedang diproses')
                                     <a href="{{ route('sendEmail', ['id' => $data->id]) }}"
-                                        class="text-blue-500">Selesaikan</a>
+                                        class="text-blue-500" onclick="confirm('Anda yakin untuk menyelesaikan laporan ini?')">Selesaikan</a>
                                 @endif
                             </td>
                         </tr>

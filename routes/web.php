@@ -27,6 +27,7 @@ Route::get('/profile', function () {
 
 Route::resource('dashboard', DashboardController::class);
 Route::get('/kirim-email/{id}', [DashboardController::class, 'sendEmail'])->name('sendEmail');
+Route::get('/tolak-email/{id}', [DashboardController::class, 'tolakEmail'])->name('tolakEmail');
 
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
