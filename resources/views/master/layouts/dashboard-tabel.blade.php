@@ -169,10 +169,18 @@
                                 {{ $data->tanggal }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $data->tanggal_selesai }}
+                                @if ($data->tanggal_selesai)
+                                {{ $data->tanggal_selesai }} 
+                                @else
+                                {{ __('-') }}    
+                                @endif
                             </td>
                             <td class="px-6 py-4">
-                                {{ $data->durasi }} Hari
+                                @if ($data->durasi)
+                                {{ $data->durasi . ' Hari' }} 
+                                @else
+                                {{ __('-') }}    
+                                @endif
                             </td>
                             <td class="px-6 py-4">
                                 {{ $data->lokasi }}
