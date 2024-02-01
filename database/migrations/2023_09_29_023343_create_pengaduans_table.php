@@ -19,7 +19,9 @@ return new class extends Migration
             $table->string('status');
             $table->string('judul');
             $table->string('pesan');
-            $table->date('tanggal')->nullable();
+            $table->date('tanggal');
+            $table->date('tanggal_selesai')->nullable();
+            $table->integer('durasi')->nullable();
             $table->string('lokasi');
             $table->string('file_input');
             $table->timestamps();

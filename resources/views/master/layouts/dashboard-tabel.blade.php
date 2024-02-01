@@ -59,6 +59,12 @@
                             Tanggal Kejadian
                         </th>
                         <th scope="col" class="px-6 py-3">
+                            Tanggal Selesai
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Durasi
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             Lokasi Kejadian
                         </th>
                         <th scope="col" class="px-6 py-3">
@@ -113,6 +119,12 @@
                             </td>
                             <td class="px-6 py-4">
                                 {{ $data->tanggal }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ $data->tanggal_selesai }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ $data->durasi }} Hari
                             </td>
                             <td class="px-6 py-4">
                                 {{ $data->lokasi }}

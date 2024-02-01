@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pengaduan;
 use Illuminate\Http\Request;
 use App\Mail\SendMail;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 
 class DashboardController extends Controller
@@ -28,6 +29,8 @@ class DashboardController extends Controller
             ];
         } else {
             $id['status'] = 'Selesai diproses';
+            $id['tanggal_selesai'] = Carbon::today();
+            $id['durasi'] = $id->hitungSelisihTanggal();
             $id->save();
             $infoMail = [
                 'nama' => $id->nama,
@@ -89,11 +92,11 @@ class DashboardController extends Controller
         $rules = $request->validate([
             'nama' => 'required',
             'email' => 'required',
-            'judul' => 'required',
+            'judul' => 'required|max:255',
             'kategori' => 'required',
-            'pesan' => 'required',
+            'pesan' => 'required|max:255',
             'tanggal' => 'required',
-            'lokasi' => 'required',
+            'lokasi' => 'required|max:255',
             'file_input' => 'required|mimes:pdf,jpg,jpeg,png|file|max:2048',
         ]);
         $rules['file_input'] = $request->file('file_input')->store('bukti');

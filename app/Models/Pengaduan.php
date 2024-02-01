@@ -2,11 +2,22 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Pengaduan extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+
+    public function hitungSelisihTanggal()
+    {
+        $tanggalKejadian = Carbon::parse($this->tanggal);
+        $tanggalSekarang = Carbon::now();
+
+        $selisihHari = $tanggalSekarang->diffInDays($tanggalKejadian);
+
+        return $selisihHari;
+    }
 }
