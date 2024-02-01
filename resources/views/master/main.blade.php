@@ -151,7 +151,7 @@
                                 aria-describedby="file_input_help" id="file_input" name="file_input" type="file" required>
                             <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">PDF, JPG, JPEG, dan PNG.</p>
                             @error('file_input')
-                                {{ $message }}
+                                <p class="text-red-500">{{ $message }}</p>
                             @enderror
                         </div>
 
