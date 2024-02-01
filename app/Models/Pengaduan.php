@@ -20,4 +20,9 @@ class Pengaduan extends Model
 
         return $selisihHari;
     }
+
+    public function pengadu()
+    {
+        return $this->belongsTo(Pengadu::class, 'pengadu_id');
+    }
 }

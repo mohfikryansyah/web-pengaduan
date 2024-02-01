@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('pengaduans', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('email');
+            $table->foreignId('pengadu_id');
             $table->string('kategori');
             $table->string('status');
             $table->string('judul');

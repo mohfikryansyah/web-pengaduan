@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pengaduan;
 use Illuminate\Http\Request;
 use App\Mail\SendMail;
+use App\Models\Pengadu;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 
@@ -23,7 +24,7 @@ class DashboardController extends Controller
             $id['status'] = 'Sedang diproses';
             $id->save();
             $infoMail = [
-                'nama' => $id->nama,
+                'nama' => $id->pengadu->nama,
                 'judul' => $id->judul,
                 'status' => 'sedang kami proses',
             ];
@@ -33,13 +34,13 @@ class DashboardController extends Controller
             $id['durasi'] = $id->hitungSelisihTanggal();
             $id->save();
             $infoMail = [
-                'nama' => $id->nama,
+                'nama' => $id->pengadu->nama,
                 'judul' => $id->judul,
                 'status' => 'selesai kami proses',
             ];
         }
 
-        Mail::to($id->email)->send(new SendMail($infoMail));
+        Mail::to($id->pengadu->email)->send(new SendMail($infoMail));
 
         return redirect('/dashboard')->with('success', 'Berhasil mengirim notifikasi!');
     }
@@ -49,12 +50,12 @@ class DashboardController extends Controller
         $id['status'] = 'Ditolak';
         $id->save();
         $infoMail = [
-            'nama' => $id->nama,
+            'nama' => $id->pengadu->nama,
             'judul' => $id->judul,
             'status' => 'ditolak',
         ];
 
-        Mail::to($id->email)->send(new SendMail($infoMail));
+        Mail::to($id->pengadu->email)->send(new SendMail($infoMail));
 
         return redirect('/dashboard')->with('success', 'Berhasil mengirim notifikasi!');
     }
@@ -88,10 +89,14 @@ class DashboardController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
-        $rules = $request->validate([
+        $pengadu = $request->validate([
             'nama' => 'required',
             'email' => 'required',
+        ]);
+
+        Pengadu::create($pengadu);
+        // dd($request->all());
+        $rules = $request->validate([
             'judul' => 'required|max:255',
             'kategori' => 'required',
             'pesan' => 'required|max:255',
@@ -99,10 +104,15 @@ class DashboardController extends Controller
             'lokasi' => 'required|max:255',
             'file_input' => 'required|mimes:pdf,jpg,jpeg,png|file|max:2048',
         ]);
+
+
+        $rules['pengadu_id'] = Pengadu::pluck('id')->last();
         $rules['file_input'] = $request->file('file_input')->store('bukti');
         $rules['status'] = 'Baru';
         // dd($rules);
         Pengaduan::create($rules);
+
+        
         return redirect('/');
     }
 
